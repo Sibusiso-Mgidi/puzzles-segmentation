@@ -18,5 +18,6 @@ To train the model, we used the puzzle dataset from the computer vision course. 
   <img src="datasets/puzzle_corners_1024x768/images-1024x768/image-36.png" width="375" />
   <img src="datasets/puzzle_corners_1024x768/masks-1024x768/mask-36_3.png" width="375" />
 </p>
+The puzzle images are divided into training 70%, validation 15%, and test 15% images. This proportion yields 34 training images, 7 validation, and 7 test images. We applied horizontal and vertcal flip data augmentation increasing our training puzzle imagesfrom 34 to 136 images.
 
 
