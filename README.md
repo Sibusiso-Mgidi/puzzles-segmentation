@@ -24,10 +24,47 @@ The puzzle images are divided into training 70%, validation 15%, and test 15% im
 
 ## U-Net Architecture
 A U-Net is a deep learning technique for semantic segmentation task proposed by <sup>2</sup>, which has demonstrated great impact in the area of biomedical images. U-Net model extends the Fully Convolutional Network (FCN) by <sup>1</sup>, which learns to segment objects in an image in an end-to-end setting. It takes in an image of any size as an input and produces segmentation map with efficient inference and learning. The network architecture consists of the encoder path and the decoder path.
+<p align="middle">
+  <img src="results/u-net-architecture.png" width="375" />
+</p>
+The encoder path has a sequence of 3 x 3 unpadded convolutional layers with ReLU activation followed by a max-pooling (2 x 2 kernel with 2 strides) for downsampling input images. The network applies max pooling on each channel of the input activation map separately in order to produce an output activation map. In the decoder layer, the feature maps from the encoder layer are expanded using 2 x 2 transposed convolutions. The feature maps are then concatenated to upsampled decoder feature maps to generate a re-scaled high resolution segmentation map and a class for each pixel <sup>2</sup>. A schematic representation of the network architecture is shown above.
 
-The encoder path has a sequence of 3 x 3 unpadded convolutional layers with ReLU activation followed by a max-pooling (2 x 2 kernel with 2 strides) for downsampling input images. The network applies max pooling on each channel of the input activation map separately in order to produce an output activation map. In the decoder layer, the feature maps from the encoder layer are expanded using 2 x 2 transposed convolutions. The feature maps are then concatenated to upsampled decoder feature maps to generate a re-scaled high resolution segmentation map and a class for each pixel <sup>2</sup>. A schematic representation of the network architecture is shwon above.
+The implementation of the U-Net deep learning model in this project follows the implementation of the original paper by <sup>2</sup>, with just a few small edits to suit our dataset better. The model was trained on a GTX 1060 machine with 6 GPU memory, Tensorflow, Python3, and Keras2. The model was trained with the following hyperparameters:
+* Learning rate: 0.001
+* Batch size: 6
+* Drop-out rate: 10%
+* Optimizer: Adam
+* Loss function: binary cross-entropy
+* Number of iterations: 34 Epochs
 
+## Results
+To evaluate the model we calculated the IoU for each image in the testing dataset and then averaged it to get the IoU metric value. The IoU measures the number  of pixels common across the target masks and prediction masks divided by the total number of pixels present in all masks.
 
+### Without Data Augmentation
+Qualitative results:
+<p align="middle">
+  <img src="results/exp_3_no_aug_batch_6.png.png" width="675" />
+</p>
+<p float="left">
+ <p align="middle">
+  <img src="results/exp_2_no_aug_batch_4_model_loss.png" width="300" />
+  <img src="results/exp_2_no_aug_batch_4_model-acc.png" width="300" />
+  <img src="results/exp_2_no_aug_batch_4_model-iou.png" width="300" />
+  </p>
+</p>
+ 
+ ### With Data Augmentation
+Qualitative results:
+<p align="middle">
+  <img src="results/exp2_aug_batch_4.png.png" width="675" />
+</p>
+<p float="left">
+ <p align="middle">
+  <img src="results/exp_3_model_lost_best.png" width="300" />
+  <img src="results/exp_3_model_acc_best.png" width="300" />
+  <img src="results/exp_3_model_iou_best.png" width="300" />
+  </p>
+</p>
 ## Sources
 1. [Long,  Jonathan,  Shelhamer,  Evan,  and  Darrell,  Trevor.Fully  convolutional networks for semantic segmentation.InCVPR 2015, 2015.]
 (http://openaccess.thecvf.com/content_cvpr_2015/html/Long_Fully_Convolutional_Networks_2015_CVPR_paper.html)
