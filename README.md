@@ -15,7 +15,7 @@ The U-Net implementation was done in Python, Tensorflow and Keras. The aim set o
 ## Sample Dataset
 To train the model, we used the puzzle dataset from the computer vision course. The dataset consists of 48 pre-processed puzzle pieces with corresponding masks having dimensions 768 x 1024 x 3 and shape 768 x 1024 respectively.
 <p float="left">
-  <img src="datasets/puzzle_corners_1024x768/masks-1024x768/image-36.png" width="425" />
+  <img src="datasets/puzzle_corners_1024x768/images-1024x768/image-36.png" width="425" />
 </p>
 
 
