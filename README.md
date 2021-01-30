@@ -56,7 +56,7 @@ Qualitative results:
  ### With Data Augmentation
 Qualitative results:
 <p align="middle">
-  <img src="results/exp2_aug_batch_4.png.png" width="675" />
+  <img src="results/exp_1_no_aug_batch_4.png" width="675" />
 </p>
 <p float="left">
  <p align="middle">
