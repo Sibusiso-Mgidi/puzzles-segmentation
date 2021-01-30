@@ -1,2 +1,4 @@
 # Puzzle Pieces Segmentation using U-Net
-The aim of the project is to train a U-Net model to segment puzzle pieces from an image.
+This project was done in partial fulfillment of the requirement for the Computer Vision course lectured by Dr. Richard Klein from the Witwatersrand University.
+
+The aim of this project is to segment puzzle pieces from an image by training the U-Net model to predict a segmentation mask on the puzzle images. This is a computer vision technique called Semantic Segmentation which classifies each pixel in an image to a predefined class. For this project, we have two classes namely the puzzle and background.
